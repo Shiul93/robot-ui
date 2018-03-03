@@ -1,1 +1,27 @@
 /* CSS declarations go here */
+body {
+    font-family: sans-serif;
+    background-color:#8f8f8f;
+    background-image: url("resources/images/axiom-pattern.png");
+
+    background-attachment: fixed;
+   
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+   
+    padding: 0;
+    margin: 0;
+   
+    font-size: 14px;
+  }
+   
+  .container {
+    max-width: 95%;
+    margin: 0 auto;
+    min-height: 100%;
+    background: transparent;
+  }
+  
