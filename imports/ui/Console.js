@@ -29,9 +29,9 @@ export default class Console extends Component{
                 textList:array,       
             });
         }
-        if (props.suscriptions){
-        props.suscriptions.forEach(id => {
-            this.state.broker.suscribe(id,addTxt);
+        if (props.subscriptions){
+        props.subscriptions.forEach(id => {
+            this.state.broker.subscribe(id,addTxt);
         });
     }
 

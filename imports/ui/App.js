@@ -16,10 +16,10 @@ class App extends Component {
 
     return(
       <div>
-      <Console textCallback={echoFun} broker={br} id ={"c1"} suscriptions={["c2"]}/>
-      <Console textCallback={echoFun} broker={br} id ={"c2"} suscriptions={["c1"]}/>
-      <Console textCallback={echoFun} broker={br} id ={"c3"} suscriptions={["c1"]}/>
-      <Console textCallback={echoFun} broker={br} id ={"c4"} suscriptions={["c1"]}/>
+      <Console textCallback={echoFun} broker={br} id ={"c1"} subscriptions={["c2"]}/>
+      <Console textCallback={echoFun} broker={br} id ={"c2"} subscriptions={["c1"]}/>
+      <Console textCallback={echoFun} broker={br} id ={"c3"} subscriptions={["c1"]}/>
+      <Console textCallback={echoFun} broker={br} id ={"c4"} subscriptions={["c1"]}/>
 
       </div>);
   }

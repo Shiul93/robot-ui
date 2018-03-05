@@ -5,20 +5,20 @@
 export default class Broker{
 
     constructor(){
-        routings = {}
+        this.feeds = {}
     }
 
     post(data,id){
-        if(routings[id]!=undefined){
-        routings[id].forEach(callback => {callback(data)});
+        if(this.feeds[id]!=undefined){
+        this.feeds[id].forEach(callback => {callback(data)});
         }
     }
 
-    suscribe(id, callback){
-        if(routings[id]!=undefined){        
-            routings[id].push(callback);
+    subscribe(id, callback){
+        if(this.feeds[id]!=undefined){        
+            this.feeds[id].push(callback);
         }else{
-            routings[id]=[callback];
+            this.feeds[id]=[callback];
         }
     }
 }
