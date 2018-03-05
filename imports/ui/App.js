@@ -7,19 +7,26 @@ import Broker from './Broker.js';
 
 // App component - represents the whole app
 class App extends Component {
-  
+  constructor(props){
+    super(props);
+
+    this.state=git {
+      broker: new Broker(),
+    };
+
+  }
   renderUI(){
-    var br = new Broker();
+    
     const echoFun = (text, response)=>{}
 
 
 
     return(
       <div>
-      <Console textCallback={echoFun} broker={br} id ={"c1"} subscriptions={["c2"]}/>
-      <Console textCallback={echoFun} broker={br} id ={"c2"} subscriptions={["c1"]}/>
-      <Console textCallback={echoFun} broker={br} id ={"c3"} subscriptions={["c1"]}/>
-      <Console textCallback={echoFun} broker={br} id ={"c4"} subscriptions={["c1"]}/>
+      <Console textCallback={echoFun} broker={this.state.broker} id ={"c1"} subscriptions={["c2"]}/>
+      <Console textCallback={echoFun} broker={this.state.broker} id ={"c2"} subscriptions={["c1"]}/>
+      <Console textCallback={echoFun} broker={this.state.broker} id ={"c3"} subscriptions={["c1"]}/>
+      <Console textCallback={echoFun} broker={this.state.broker} id ={"c4"} subscriptions={["c1"]}/>
 
       </div>);
   }
