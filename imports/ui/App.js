@@ -8,9 +8,13 @@ import Console from './Console.js';
 class App extends Component {
   
   renderUI(){
-    return(<Console/>)
+    const echoFun = (text, response)=>{response(text)}
+
+    return(<Console textCallback={echoFun}/>)
   }
+
   render() {
+
     return (
       <div className="container">
         <header>

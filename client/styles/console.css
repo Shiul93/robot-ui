@@ -13,26 +13,35 @@
     margin: auto;
   }
   .consoleScreen{
+    position:relative;
     padding: 1em 1em;
-
+    font-family: monospace;
     background: rgba(0, 0, 0, 0.5);
     color: white;
     min-height: 192px;
     max-height: 192px;
+    height: 90%;
+    margin-top: 5px;
 
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
-    overflow: hidden;
+    overflow:auto;
+    z-index: 1;
   }
 
   .consoleInputContainer{
+    position:relative;
     padding: 0px;
     height: 20%;
     width: 99%;
     margin: auto;
-    margin-top: -10px;
+    z-index: 2;
 
   }
+
+  .consoleScreen::-webkit-scrollbar { 
+    display: none; 
+}
 
   .consoleInputContainer form{
     height: 20px;
@@ -59,6 +68,7 @@
 
   .consoleInputContainer input{
     float: left;
+    font-family: monospace;
     width:95%;
     min-height: 100%;
     box-sizing: border-box;
@@ -71,3 +81,52 @@
 
   }
   
+
+  
+
+a {
+    position: relative;
+    font-family: monospace;
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+}
+
+.cursor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background: black;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-left: .5em solid;
+    
+    -webkit-animation: typing 1s steps(13, end) ,
+        blinking 1s step-end ;
+    animation: typing 1s steps(13, end) ,
+        blinking 1s step-end ;
+}
+
+@-webkit-keyframes typing {
+    from,to { width: 100%; }
+    25% { width: 0; }
+    50% { width: 0; }
+    75% { width: 100%; }
+}
+
+@keyframes typing {
+    from { width: 100%; }
+    to { width: 0; }
+}
+
+@-webkit-keyframes blinking {
+    from, to { border-color: transparent; }
+    50% { border-color: green; }
+}
+
+@keyframes blinking {
+    from, to { border-color: transparent; }
+    50% { border-color: green; }
+}
