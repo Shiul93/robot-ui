@@ -5,6 +5,11 @@
     padding: 1px;
     
   }
+  @media only screen and (max-width: 300px) {
+    .console {
+      max-width: 95%;
+    }
+  }
   .consoleScreenContainer{
     background-color: transparent;
     height: 80%;

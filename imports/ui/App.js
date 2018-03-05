@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    this.state=git {
+    this.state={
       broker: new Broker(),
     };
 
