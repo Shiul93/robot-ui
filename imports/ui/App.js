@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import Console from './Console.js';
+import Broker from './Broker.js';
 
 
 
@@ -8,16 +9,22 @@ import Console from './Console.js';
 class App extends Component {
   
   renderUI(){
-    const echoFun = (text, response)=>{response(text)}
+    var br = new Broker();
+    const echoFun = (text, response)=>{}
 
-    return(<Console textCallback={echoFun}/>)
+
+
+    return(
+      <div>
+      <Console textCallback={echoFun} broker={br} id ={"c1"} suscriptions={["c2"]}/>
+      <Console textCallback={echoFun} broker={br} id ={"c2"} suscriptions={["c1"]}/>
+      <Console textCallback={echoFun} broker={br} id ={"c3"} suscriptions={["c1"]}/>
+      <Console textCallback={echoFun} broker={br} id ={"c4"} suscriptions={["c1"]}/>
+
+      </div>);
   }
 
-  render() {
-
-    return (
-      <div className="container">
-        <header>
+  renderTopBar(){
         <div className="icon-bar">
           <a className="active" href="#"><i className="fa fa-home"></i></a> 
           <a href="#"><i className="fa fa-search"></i></a> 
@@ -25,6 +32,14 @@ class App extends Component {
           <a href="#"><i className="fa fa-globe"></i></a>
           <a href="#"><i className="fa fa-trash"></i></a> 
         </div>
+  }
+
+  render() {
+
+    return (
+      <div className="container">
+        <header>
+          {this.renderTopBar()}
         </header>
 
         <div>

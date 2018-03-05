@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import ReactDOM from 'react-dom';
 import StayScrolled from 'react-stay-scrolled';
+import Broker from "./Broker.js";
 
 
 export default class Console extends Component{
@@ -13,30 +14,48 @@ export default class Console extends Component{
         //Should be of the form method(text, responseHandle)
      
         this.state = {
+            id:props.id,
+            broker:props.broker,
             textCallback:props.textCallback,
             foo: "var",
-            textList : [""],
+            textList : ["Console Id: "+props.id],
           };
 
-        
-
-      }
-
-    
-
-    handleSubmit(event){
-        const addTxt= (text) =>{
+         
+        const  addTxt=(text)=>{
             var array =this.state.textList;
             array.push(text); 
             this.setState({
                 textList:array,       
             });
         }
-        event.preventDefault();
+        if (props.suscriptions){
+        props.suscriptions.forEach(id => {
+            this.state.broker.suscribe(id,addTxt);
+        });
+    }
 
+        
+
+        
+
+      }
+
+    
+    
+    handleSubmit(event){
+        
+        event.preventDefault();
+        const addTxt=(text)=>{
+            var array =this.state.textList;
+            array.push(text); 
+            this.setState({
+                textList:array,       
+            });
+        }
         const text = ReactDOM.findDOMNode(this.refs.con_textentry).value.trim();
         addTxt("> " + text);
-
+        this.state.broker.post(text,this.state.id);
         this.state.textCallback(text,addTxt);
         
         this.scrollToBottom();
